@@ -53,5 +53,10 @@ Quoter is an automated application for generating short professional-looking quo
 - **Developer-Friendly Configurations**:
   - Easily modify settings like fade durations, directories, and output quality.
 
+<br><br>
+
+<div align="center">
+
 This app provides the foundation for a basic video editor while focusing on generating professional quote videos dynamically and efficiently.
 
+</div>
