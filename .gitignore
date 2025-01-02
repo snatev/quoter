@@ -1,0 +1,12 @@
+.vscode
+last.txt
+info.txt
+tags.txt
+videos/*
+musics/*
+quotes.txt
+__pycache__
+final_video
+saved_videos
+final_video/*
+saved_videos/*
