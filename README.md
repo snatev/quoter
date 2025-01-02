@@ -5,7 +5,7 @@
 
 # 🌟 Quoter - Automated Quote Video Generator 🎥✨
 
-Quoter is an automated application for generating short professional-looking quote videos with music and video backgrounds. It's designed to create high-quality videos with minimal effort, ideal for quick and efficient video production.
+Quoter is an automated application for generating short professional-looking quote videos with music and video backgrounds. It's designed to create high-quality videos with minimal effort.
 
 </div>
 
