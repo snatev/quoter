@@ -1,8 +1,6 @@
 
 <div align="center">
 
-![quoter](https://github.com/user-attachments/assets/f390b15b-9769-4788-a9e5-25570702da04)
-
 # 🌟 Quoter - Automated Quote Video Generator 🎥✨
 
 Quoter is an automated application for generating short professional-looking quote videos with music and video backgrounds. It's designed to create high-quality videos with minimal effort.
