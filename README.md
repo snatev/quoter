@@ -27,6 +27,20 @@
 
 <br><br>
 
+## 📜 **How It Works**
+
+| Component           | Functionality                                                                 |
+|---------------------|------------------------------------------------------------------------------|
+| `config.py`         | Sets up directories and default files if they don’t exist.                   |
+| `main.py`           | Ties everything together for seamless video generation.                     |
+| `music_manager.py`  | Randomly selects and synchronizes background music with videos.              |
+| `video_processor.py`| Handles trimming, resizing, adding overlays, and applying fades to videos.   |
+| `quote_manager.py`  | Manages quotes, ensures no duplicates, and cycles through them sequentially. |
+
+---
+
+<br><br>
+
 ## 📂 **Folder Structure**
 
 ```plaintext
@@ -46,21 +60,5 @@
     ├── quotes.txt         # Contains Quotes
     ├── last.txt           # Tracks Last Quote
 ```
-
----
-
-<br><br>
-
-## 📜 **How It Works**
-
-| Component           | Functionality                                                                 |
-|---------------------|------------------------------------------------------------------------------|
-| `config.py`         | Sets up directories and default files if they don’t exist.                   |
-| `main.py`           | Ties everything together for seamless video generation.                     |
-| `music_manager.py`  | Randomly selects and synchronizes background music with videos.              |
-| `video_processor.py`| Handles trimming, resizing, adding overlays, and applying fades to videos.   |
-| `quote_manager.py`  | Manages quotes, ensures no duplicates, and cycles through them sequentially. |
-
----
 
 </div>
