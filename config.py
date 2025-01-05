@@ -9,6 +9,9 @@ def create_file_if_not_exists(fpath, default_content=""):
             file.write(default_content)
 
 BASE_DIR = path.dirname(path.abspath(__file__))
+create_directory(path.join(BASE_DIR, "static"))
+create_directory(path.join(BASE_DIR, "folders"))
+
 LAST_FILE = path.join(BASE_DIR, "static/last.txt")
 QUOTES_FILE = path.join(BASE_DIR, "static/quotes.txt")
 VIDEO_DIRECTORY = path.join(BASE_DIR, "folders/videos")
