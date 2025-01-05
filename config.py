@@ -1,21 +1,23 @@
-import os
+from os import makedirs, path
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+def create_directory(fpath):
+    makedirs(fpath, exist_ok=True)
 
-LAST_FILE = os.path.join(BASE_DIR, "last.txt")
-VIDEO_DIRECTORY = os.path.join(BASE_DIR, "videos")
-MUSIC_DIRECTORY = os.path.join(BASE_DIR, "musics")
-QUOTES_FILE = os.path.join(BASE_DIR, "quotes.txt")
-OUTPUT_DIRECTORY = os.path.join(BASE_DIR, "final_video")
-SAVED_VIDEO_DIRECTORY = os.path.join(BASE_DIR, "saved_videos")
+def create_file_if_not_exists(fpath, default_content=""):
+    if not path.exists(fpath) or not path.isfile(fpath):
+        with open(fpath, "w", encoding="utf-8") as file:
+            file.write(default_content)
 
-os.makedirs(VIDEO_DIRECTORY, exist_ok=True)
-os.makedirs(MUSIC_DIRECTORY, exist_ok=True)
-os.makedirs(OUTPUT_DIRECTORY, exist_ok=True)
-os.makedirs(SAVED_VIDEO_DIRECTORY, exist_ok=True)
+BASE_DIR = path.dirname(path.abspath(__file__))
+LAST_FILE = path.join(BASE_DIR, "static/last.txt")
+QUOTES_FILE = path.join(BASE_DIR, "static/quotes.txt")
+VIDEO_DIRECTORY = path.join(BASE_DIR, "folders/videos")
+MUSIC_DIRECTORY = path.join(BASE_DIR, "folders/musics")
+OUTPUT_DIRECTORY = path.join(BASE_DIR, "folders/final_video")
+SAVED_VIDEO_DIRECTORY = path.join(BASE_DIR, "folders/saved_videos")
 
-if not os.path.exists(LAST_FILE):
-    with open(LAST_FILE, "w", encoding="utf-8") as file: file.write("0")
+directories = [VIDEO_DIRECTORY, MUSIC_DIRECTORY, OUTPUT_DIRECTORY, SAVED_VIDEO_DIRECTORY]
+for directory in directories: create_directory(directory)
 
-if not os.path.exists(QUOTES_FILE):
-    with open(QUOTES_FILE, "w", encoding="utf-8") as file: file.write("Test Quote 1\n")
+create_file_if_not_exists(LAST_FILE, "0")
+create_file_if_not_exists(QUOTES_FILE, "Test Quote 1 - Snatev\n")

@@ -1,60 +1,66 @@
+<table align="center">
+    <tr>
+        <td align="center">
+            <img src="https://github.com/user-attachments/assets/6c300a6c-bed5-477e-8b7e-16ffbcd1fd4d" width="300">
+        </td>
+        <td></td>
+        <td align="center">
+            <p>Generate short videos with quotes and music effortlessly. Easily create content for platforms like Instagram, TikTok, and YouTube Shorts. This is a first basic version, mainly for personal use.
+</p>
+        </td>
+       <td></td>
+    </tr>
+</table>
 
-<div align="center">
+<br><br>
 
-# 🌟 Quoter - Automated Quote Video Generator 🎥✨
+## 🌟 **Features**
 
-Quoter is an automated application for generating short professional-looking quote videos with music and video backgrounds. It's designed to create high-quality videos with minimal effort.
-
-</div>
+- 🖋️ **Text Overlay**: Adds styled quotes and branding to videos.
+- 🛠️ **Extensible Codebase**: Modular design for easy customizations.
+- 🎨 **Video Effects**: Includes fade-in/out transitions and opacity-adjusted overlays.
+- 🎵 **Dynamic Music Integration**: Randomly selects music, trims, and syncs with videos.
+- 🔄 **Quote Management**: Automatically cycles through quotes and removes duplicates.
+- ✂️ **Video Trimming & Resizing**: Ensures perfect aspect ratios for social media platforms.
 
 ---
 
 <br><br>
 
-## 🛠️ Features
-- 🎥 **Dynamic Video Backgrounds**: Crops and resizes videos to fit perfectly.
-- ✨ **Fade Effects**: Smooth fade-ins and fade-outs for both video and music.
-- 📝 **Formatted Quote Text**: Applies beautiful fonts, strokes, and sizes to the quotes.
-- 💾 **High-Quality Output**: Outputs ready-to-use videos with professional formatting.
-- 🤖 **Fully Automated**: The app works end-to-end with no manual interaction required.
-- 🎶 **Random Dynamic Background Music**: Automatically selects and trims background music.
+## 📂 **Folder Structure**
+
+```plaintext
+├── quote_manager.py       # Manages Quotes
+├── video_processor.py     # Processes Videos
+├── config.py              # Base Configuration
+├── main.py                # Main Application Logic
+├── music_manager.py       # Handles Music Integration
+├── folders/
+│   ├── videos/            # Input Video Files
+│   ├── musics/            # Input Music Files
+│   ├── saved_videos/      # Final Output Directory
+│   ├── final_video/       # Temporary Processing Directory
+├── static/
+    ├── Roboto-Regular.ttf # Overlay Font
+    ├── Roboto-Black.ttf   # Branding Font
+    ├── quotes.txt         # Contains Quotes
+    ├── last.txt           # Tracks Last Quote
+```
 
 ---
 
 <br><br>
 
-## 🚀 How It Works
-1. Add background videos to the `videos/` folder.
-2. Add music tracks to the `musics/` folder.
-3. Add quotes (one per line) to `quotes.txt`.
+## 📜 **How It Works**
 
-   Example:
-   ```
-   "This Is A Test Quote" - Snatev
-   ```
-
-4. Run the app and find your finished video in the `saved_videos/` folder.
+| Component           | Functionality                                                                 |
+|---------------------|------------------------------------------------------------------------------|
+| `config.py`         | Sets up directories and default files if they don’t exist.                   |
+| `main.py`           | Ties everything together for seamless video generation.                     |
+| `music_manager.py`  | Randomly selects and synchronizes background music with videos.              |
+| `video_processor.py`| Handles trimming, resizing, adding overlays, and applying fades to videos.   |
+| `quote_manager.py`  | Manages quotes, ensures no duplicates, and cycles through them sequentially. |
 
 ---
-
-<br><br>
-
-## ✨ Additional Features
-- **Last State Remember**: Automatically resumes from the last processed quote.
-- **Video and Music Enhancements**: Basic video editor features like trimming, resizing, and overlaying text.
-- **Custom Run Parameters**:
-  - Remove duplicate quotes with a single parameter.
-  - Specify a particular video or music to use for processing.
-- **Advanced Text Formatting**:
-  - Multi-line quotes with seamless text wrapping.
-  - Customize font size, color, and stroke styles.
-- **Developer-Friendly Configurations**:
-  - Easily modify settings like fade durations, directories, and output quality.
-
-<br><br>
-
-<div align="center">
-
-This app provides the foundation for a basic video editor while focusing on generating professional quote videos dynamically and efficiently.
 
 </div>

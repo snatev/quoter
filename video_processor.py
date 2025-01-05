@@ -1,7 +1,11 @@
-import os
 import cv2
-import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from np import array
+from os import makedirs
+
+from PIL import Image
+from PIL.ImageDraw import Draw
+from PIL.ImageFont import truetype
+
 from moviepy.video.fx.all import fadein, fadeout
 from moviepy.audio.fx.all import audio_fadein, audio_fadeout
 from moviepy.editor import VideoFileClip, CompositeVideoClip, ColorClip
@@ -9,7 +13,7 @@ from moviepy.editor import VideoFileClip, CompositeVideoClip, ColorClip
 class VideoProcessor:
     def __init__(self, output_dir):
         self.output_dir = output_dir
-        os.makedirs(self.output_dir, exist_ok=True)
+        makedirs(self.output_dir, exist_ok=True)
 
     def trim_to_duration(self, input_path, output_path, duration=10):
         with VideoFileClip(input_path) as video:
@@ -58,6 +62,7 @@ class VideoProcessor:
         fps = cap.get(cv2.CAP_PROP_FPS)
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         width, height = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
         out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
 
         def sanitize_text(text):
@@ -81,8 +86,8 @@ class VideoProcessor:
             return lines
 
         sanitized_text = sanitize_text(text)
-        font = ImageFont.truetype("./Roboto-Regular.ttf", 55)
-        brand_font = ImageFont.truetype("./Roboto-Black.ttf", 125)
+        font = truetype("./static/Roboto-Regular.ttf", 55)
+        brand_font = truetype("./static/Roboto-Black.ttf", 125)
 
         if " - " in sanitized_text:
             main_text, author = sanitized_text.rsplit(" - ", 1)
@@ -99,7 +104,7 @@ class VideoProcessor:
 
             image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
             text_overlay = Image.new("RGBA", image.size, (255, 255, 255, 0))
-            draw = ImageDraw.Draw(text_overlay)
+            draw = Draw(text_overlay)
 
             brand_text_width, brand_text_height = brand_font.getbbox(brand_name)[2:]
             brand_x = (width - brand_text_width) // 2
@@ -123,7 +128,7 @@ class VideoProcessor:
                 y_position += text_height + 10
 
             blended_image = Image.alpha_composite(image.convert("RGBA"), text_overlay)
-            frame_with_text = cv2.cvtColor(np.array(blended_image.convert("RGB")), cv2.COLOR_RGB2BGR)
+            frame_with_text = cv2.cvtColor(array(blended_image.convert("RGB")), cv2.COLOR_RGB2BGR)
             out.write(frame_with_text)
 
         cap.release()
